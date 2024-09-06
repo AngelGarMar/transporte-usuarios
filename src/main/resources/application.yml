@@ -1,0 +1,26 @@
+spring:
+    application:
+        name: transporte-usuarios-4
+    datasource:
+        url: jdbc:mysql://localhost:3306/transporte_usuarios_msrv
+        username: micro_usuarios
+        password: transporte_u_msrv
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+        database-platform: org.hibernate.dialect.MySQLDialect
+        show-sql: true
+
+eureka:
+    instance:
+        instance-id: "${spring.application.name}:${random.value}"
+    client:
+        service-url:
+            defaultZone: http://localhost:8761/eureka
+
+server:
+    port: 0
+
+security:
+    jwt:
+        secret-key: QW5nZWwgQWxlamFuZHJvIEdhcmNpYSBNYXJ0aW5leiBBbmdlbCBBbGVqYW5kcm8gR2FyY2lhIE1hcnRpbmV6
+        expiration-in-minutes: 30
